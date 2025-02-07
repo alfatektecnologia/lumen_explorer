@@ -1,6 +1,6 @@
 package br.com.alfatek.lumenexplorer.retrofit.model
 
-data class Block2(
+data class Block(
     val _links: Links,
     val base_fee_in_stroops: Int,
     val base_reserve_in_stroops: Int,

@@ -21,7 +21,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import br.com.alfatek.lumenexplorer.R
-import br.com.alfatek.lumenexplorer.ui.theme.LumenExplorerTheme
+import br.com.alfatek.lumenexplorer.ui.theme.AppTheme
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -62,8 +63,8 @@ fun MainScreen(modifier: Modifier = Modifier) {
             .fillMaxSize()
         ) {
 
-            LumenExplorerTheme {
-                InfoScreen()
+            AppTheme {
+                SearchInfoScreen(modifier = modifier)
             }
         }
     }

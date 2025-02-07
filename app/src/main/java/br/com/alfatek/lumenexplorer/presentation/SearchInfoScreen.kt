@@ -33,10 +33,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
-fun InfoScreen(viewModel: MainViewModel = hiltViewModel()) {
+fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modifier) {
     val blockInfo by viewModel.info.observeAsState()
 
     val transaction by viewModel.transaction.observeAsState()
+
     val balance by viewModel.balance.observeAsState()
     val block by viewModel.block.observeAsState()
     val blockState = remember { mutableStateOf(true) }
@@ -48,7 +49,8 @@ fun InfoScreen(viewModel: MainViewModel = hiltViewModel()) {
     val search = remember { mutableStateOf("Info") }
     Column(
         modifier = Modifier
-            .padding(16.dp)
+            .padding(8.dp)
+            //.verticalScroll(rememberScrollState())
             .fillMaxSize(),
 
         verticalArrangement = Arrangement.Center,
@@ -59,14 +61,14 @@ fun InfoScreen(viewModel: MainViewModel = hiltViewModel()) {
 
         Card(modifier = Modifier.padding(8.dp).fillMaxWidth()) {
 
-            Column(Modifier.selectableGroup().padding(horizontal = 8.dp)) {
+            Column(Modifier.selectableGroup().padding(horizontal = 4.dp)) {
 
                     Row(
                         Modifier
                             .fillMaxWidth()
-                            .height(56.dp)
-                            .padding(horizontal = 8.dp),
-                        horizontalArrangement = Arrangement.SpaceEvenly,
+                            .height(56.dp),
+
+                        horizontalArrangement = Arrangement.Start,
                         verticalAlignment = Alignment.CenterVertically
                     ) {
 
@@ -171,7 +173,7 @@ fun InfoScreen(viewModel: MainViewModel = hiltViewModel()) {
             TransactionCard(transaction)
         }
         if (balance != null && search.value == "Balance") {
-            BalanceList(balance!!)
+            BalanceList(balance!!, modifier)
         }
         if (blockInfo != null && search.value == "Info") {
             BlockInfoCard(blockInfo)
