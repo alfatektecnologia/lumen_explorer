@@ -28,7 +28,7 @@ import br.com.alfatek.lumenexplorer.ui.theme.AppTheme
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
 
-   // val scrollState = rememberScrollState(50)
+
     var selectedIndex by remember {
         mutableIntStateOf(0)
     }

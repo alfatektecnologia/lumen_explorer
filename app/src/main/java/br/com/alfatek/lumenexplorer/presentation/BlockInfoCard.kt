@@ -32,11 +32,11 @@ fun BlockInfoCard(blockChainInfo: BlockInfo?) {
     ) {
         Column(
             horizontalAlignment = Alignment.Start,
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth().padding(4.dp),
         ) {
             TextField(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(4.dp)
                     .fillMaxWidth()
                     .selectable(selected = false, enabled = true, onClick = {
                         clipboardManager.setText(AnnotatedString(text))
@@ -50,7 +50,7 @@ fun BlockInfoCard(blockChainInfo: BlockInfo?) {
             )
             TextField(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(4.dp)
                     .fillMaxWidth()
                     .border(width = 2.dp, color = Color.LightGray),
                 value = blockChainInfo?.latest_ledger_sequence?.toString() ?: "N/A",
@@ -61,7 +61,7 @@ fun BlockInfoCard(blockChainInfo: BlockInfo?) {
             )
             TextField(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(4.dp)
                     .fillMaxWidth()
                     .border(width = 2.dp, color = Color.LightGray),
                 value = blockChainInfo?.ledger_count?.toString() ?: "N/A",
@@ -72,7 +72,7 @@ fun BlockInfoCard(blockChainInfo: BlockInfo?) {
             )
             TextField(
                 modifier = Modifier
-                    .padding(8.dp)
+                    .padding(4.dp)
                     .fillMaxWidth()
                     .border(width = 2.dp, color = Color.LightGray),
                 value = blockChainInfo?.protocol_version?.toString() ?: "N/A",

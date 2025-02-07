@@ -50,7 +50,6 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
     Column(
         modifier = Modifier
             .padding(8.dp)
-            //.verticalScroll(rememberScrollState())
             .fillMaxSize(),
 
         verticalArrangement = Arrangement.Center,
@@ -73,7 +72,8 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                     ) {
 
                             Row(
-                                verticalAlignment = Alignment.CenterVertically
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Start
                             ) {
                                 RadioButton(
                                     selected = blockState.value,
@@ -88,11 +88,12 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                                 Text(
                                     text = "Block",
                                     style = MaterialTheme.typography.bodyLarge,
-                                    //modifier = Modifier.padding(start = 8.dp)
+
                                 )
                             }
                         Row(
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start
                         ) {
                             RadioButton(
                                 selected = transactionState.value,
@@ -107,12 +108,13 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                             Text(
                                 text = "Transaction",
                                 style = MaterialTheme.typography.bodyLarge,
-                                //modifier = Modifier.padding(start = 8.dp)
+
                             )
                         }
 
                         Row(
-                            verticalAlignment = Alignment.CenterVertically
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.Start
                         ) {
                             RadioButton(
                                 selected = walletState.value,
@@ -122,12 +124,12 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                                     transactionState.value = false
                                     searchType.value = "Wallet"
                                     texto.value = "N/A"
-                                } // null recommended for accessibility with screenreaders
+                                }
                             )
                             Text(
                                 text = "Wallet",
                                 style = MaterialTheme.typography.bodyLarge,
-                               // modifier = Modifier.padding(start = 8.dp)
+
                             )
                         }
 
@@ -140,7 +142,7 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                         .fillMaxWidth()
                         .border(width = 2.dp, color = Color.Gray)
                         
-                        .padding(horizontal = 16.dp),
+                        .padding(horizontal = 8.dp),
                     onValueChange = { texto.value = it },
 
                     label = {
@@ -155,7 +157,7 @@ fun SearchInfoScreen(viewModel: MainViewModel = hiltViewModel(), modifier: Modif
                                 .clickable(
                                     enabled = true,
                                     onClick = { search.value = callRepo(searchType.value,texto,viewModel) })
-                            // .enabled(texto?.isNotEmpty() ?: false)
+
                         )
                     }
                 )
